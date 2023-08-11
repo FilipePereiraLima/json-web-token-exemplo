@@ -5,19 +5,9 @@ body {
 form{
   display: grid;
   grid-template-columns: 75%;
-  margin-left: 15%;
 }
 
-
-.title{
-  color: white;
-
+.campos{
+  width: 25%;
+  height: 25px;
 }
-#areaAutenticar{
-
-  width: 20%;
-  height: 20%;
-  margin-top: 100px;
-  background-color: blue;
-}
-
