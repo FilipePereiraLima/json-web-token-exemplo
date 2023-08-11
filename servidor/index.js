@@ -61,7 +61,9 @@ app.post('/deslogar', function(req, res) {
   })
 })
 
-
+app.get('/usuarios/cadastrar', async function(req, res){
+  res.render('cadastrar');
+})
 
 
 app.listen(3000, function() {
