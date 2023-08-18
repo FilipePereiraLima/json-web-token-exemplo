@@ -67,14 +67,11 @@ app.get('/usuarios/cadastrar', async function(req, res){
 })
 
 app.post('/usuarios/cadastrar', async function(req, res){
-  let {usuario, senha, confisenha} = req.body
-  if(senha == confisenha){
-    const id = 1
-     res.json({
-      usuario: req.body.usuario,
-      senha:req.body.senha,
-      confi78senha:req.body.confisenha
-    })
+  
+    if(req.body.senha == req.body.confisenha){
+      await usuario.create(req.body);
+      res.redirect('/')
+
   }else{
     res.status(500).json({mensagem:"As senhas são diferentes"})
   }
