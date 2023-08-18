@@ -25,7 +25,7 @@ app.use(
     secret: process.env.SECRET,
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/usuarios/cadastrar"] })
 );
 
 app.get('/autenticar', async function(req, res){
@@ -62,9 +62,23 @@ app.post('/deslogar', function(req, res) {
 })
 
 app.get('/usuarios/cadastrar', async function(req, res){
+   
   res.render('cadastrar');
 })
 
+app.post('/usuarios/cadastrar', async function(req, res){
+  let {usuario, senha, confisenha} = req.body
+  if(senha == confisenha){
+    const id = 1
+     res.json({
+      usuario: req.body.usuario,
+      senha:req.body.senha,
+      confi78senha:req.body.confisenha
+    })
+  }else{
+    res.status(500).json({mensagem:"As senhas são diferentes"})
+  }
+})
 
 app.listen(3000, function() {
   console.log('App de Exemplo escutando na porta 3000!')
