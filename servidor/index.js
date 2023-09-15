@@ -11,6 +11,9 @@ const { usuario } = require('./models');
 
 const app = express();
 
+const crypto = require('./crypto');
+
+
 app.set('view engine', 'ejs');
 
 app.use(cors());
@@ -25,7 +28,7 @@ app.use(
     secret: process.env.SECRET,
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/usuarios/cadastrar", "/"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/"] })
 );
 
 app.get('/autenticar', async function(req, res){
@@ -75,9 +78,19 @@ app.post('/usuarios/cadastrar', async function(req, res){
   
     if(req.body.senha == req.body.confisenha){
       await usuario.create(req.body);
-      res.redirect('/')
-
-  }else{
+      res.redirect('/usuarios/cadastrar')
+      
+      let usuariocrypto = req.body;
+      //vai ter que criar a senha criptografada no banco de dados
+      //vai ter que chamar ela do banco de dados
+      //descriptografar a senha e comparar elas
+      const encrypted_key = crypto.encrypt(usuariocrypto.senha);
+      console.log("senha criptografada: " + encrypted_key);
+  
+      const decrypted_key = crypto.decrypt(encrypted_key);
+      console.log("descryptografada: " + decrypted_key)
+  
+    }else{
     res.status(500).json({mensagem:"As senhas são diferentes"})
   }
 })
