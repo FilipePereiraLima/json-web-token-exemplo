@@ -75,12 +75,18 @@ app.get('/usuarios/cadastrar', async function(req, res){
 })
 
 app.post('/usuarios/cadastrar', async function(req, res){
+
+    if(req.body.senha == req.body.confisenha){
+      //aqui vai ir a criptografia da senha e mandar no banco de dados
+    }
   
     if(req.body.senha == req.body.confisenha){
       await usuario.create(req.body);
       res.redirect('/usuarios/cadastrar')
       
       let usuariocrypto = req.body;
+
+
       //vai ter que criar a senha criptografada no banco de dados
       //vai ter que chamar ela do banco de dados
       //descriptografar a senha e comparar elas
