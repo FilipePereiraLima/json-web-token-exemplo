@@ -9,12 +9,12 @@
   <title>Lista</title>
 </head>
 <body>
-    <h1 class="title">Usuarios Cadastrados</h1>
-    <div id="container">
-        <h3 class="title">
+    <h1 class="title1lista">Usuarios Cadastrados</h1>
+    <div id="containerlista">
+        <h3 class="titlelista">
     <% users.forEach((usuario) => { %>
-        <p><%= usuario.usuario%>
-        <%= usuario.senha%></p>
+        <p>Usuario: <%= usuario.usuario%>
+       <br/>Senha: <%= usuario.senha%></p>
     <%})%>
 </h3>
     </div> 
