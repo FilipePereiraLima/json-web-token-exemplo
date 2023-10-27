@@ -46,7 +46,7 @@
       const id = usuariodobanco.id;
       const token = jwt.sign({id}, process.env.SECRET, {expiresIn:300});
       res.cookie("token", token, {httpOnly:true})
-      return res.redirect("/usuarios/cadastrar")
+      return res.redirect("/usuarios/listar")
     }else{
       res.status(500).json({mensagem:"Senha e/ou Usuário incorreto!"})
     }
@@ -81,7 +81,7 @@
         usuariocrypto.senha = encrypted_key;
 
         await usuario.create(usuariocrypto);
-        res.redirect('/usuarios/cadastrar')
+        res.redirect('/usuarios/listar')
 
         
 
