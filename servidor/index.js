@@ -40,24 +40,15 @@
   })
 
   app.post('/logar', async function (req, res){
-
-    const usuarioname = await usuario.findOne({ where: { usuario: req.body.usuario} });
-    if(usuarioname == null) return res.status(500).json({ message: 'Ocorreu um erro ao buscar o usuário.' });
+    const usuariodobanco = await usuario.findOne({where: {usuario: req.body.usuario, senha: crypto.encrypt(req.body.senha)}})
     
-    if(req.body.senha === usuarioname.senha){
-      const id = 1;
-      const token = jwt.sign({ id }, process.env.SECRET, {
-        expiresIn: 300
-      })
-
-      res.cookie('token', token, {httpOnly:true});
-      return res.json({
-        usuario: req.body.usuario,
-          token: token
-      })
-
+    if (usuariodobanco) {
+      const id = usuariodobanco.id;
+      const token = jwt.sign({id}, process.env.SECRET, {expiresIn:300});
+      res.cookie("token", token, {httpOnly:true})
+      return res.redirect("/usuarios/cadastrar")
     }else{
-      return res.render(500).json({ message: 'Ocorreu um erro ao buscar o usuário.' });
+      res.status(500).json({mensagem:"Senha e/ou Usuário incorreto!"})
     }
   })
     
