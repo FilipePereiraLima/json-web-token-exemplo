@@ -3,6 +3,18 @@
   const jwt = require('jsonwebtoken');
   var { expressjwt: expressJWT } = require("express-jwt");
   const cors = require('cors');
+  const corsOpcoes = {
+    //CLIENTE QUE FARA ACESSO
+    origin: "http://localhost:3000",
+    
+    //METODOS QUE O CLIENTE PODERA EXECUTAR
+    methods: "GET, PUT ,POST, DELETE",
+
+    allowedHeaders: "Content-Type, Authotization",
+    credentials: true
+
+  }
+
 
   var cookieParser = require('cookie-parser')
 
@@ -10,6 +22,7 @@
   const { usuario } = require('./models');
 
   const app = express();
+  app.use(cors(corsOpcoes))
 
   const crypto = require('./crypto');
 
@@ -28,7 +41,7 @@
       secret: process.env.SECRET,
       algorithms: ["HS256"],
       getToken: req => req.cookies.token
-    }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/"] })
+    }).unless({ path: ["/autenticar", "/logar", "/deslogar", "/", "/usuarios/listar"] })
   );
 
   app.get('/autenticar', async function(req, res){
@@ -45,7 +58,10 @@
     if (usuariodobanco) {
       const id = usuariodobanco.id;
       const token = jwt.sign({id}, process.env.SECRET, {expiresIn:300});
-      res.cookie("token", token, {httpOnly:true})
+      res.cookie("token", token, {httpOnly:true}).json({
+        nome: usuariodobanco.usuario,
+        token: token
+      })
       return res.redirect("/usuarios/listar")
     }else{
       res.status(500).json({mensagem:"Senha e/ou Usuário incorreto!"})
@@ -60,11 +76,7 @@
     })
   })
 
-  app.get('/usuarios/listar', async function(req, res) {
-    let usuarios = await usuario.findAll()
-    res.render('listar', {users: usuarios});
-
-  })
+ 
 
   app.get('/usuarios/cadastrar', async function(req, res){
     res.render('cadastrar');
@@ -92,6 +104,12 @@
     }
   })
 
+  app.get('/usuarios/listar', async function(req, res) {
+    let usuarios = await usuario.findAll()
+    res.json({users: usuarios});
+
+  })
+  
   app.listen(3000, function() {
     console.log('App de Exemplo escutando na porta 3000!')
   });
