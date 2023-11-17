@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+.body {
+    background-color: rgb(37, 54, 67);
+
+}
+
+.centernav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.divform {
+    margin-top: 5rem;
+    width: 22rem;
+    height: 22rem;
+    background: #fff;
+    border-radius: 10px;
+
+}
+
+
+.button {
+    margin-top: 15px;
+    width: 25vw;
+    height: 5vh;
+    background-color: #ffd71a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+.iptemail {
+    width: 26vw;
+    height: 5vh;
+    margin-left: 2.5%;
+    border: none;
+    border-bottom: 2px solid #ffd71a;
+    outline: 0;
+}
+
+.iptsenha {
+    width: 26vw;
+    height: 5vh;
+    margin-left: 2.5%;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid #ffd71a;
+    outline: 0;
+}
+
+.iptnome {
+    width: 26vw;
+    height: 5vh;
+    margin-left: 2.5%;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid #ffd71a;
+    outline: 0;
+}
+
+.h1login {
+    margin-left: 8rem;
+    margin-top: 3rem;
+    font-family: 'Abril Fatface';
+    font-size: 40px;
+    color: rgb(37, 54, 67);
+}
+
+.h1alterar {
+    margin-left: 7rem;
+    margin-top: 3rem;
+    font-family: 'Abril Fatface';
+    font-size: 40px;
+    color: rgb(37, 54, 67);
+}
+
+.h1registrar {
+    margin-left: 5.5rem;
+    margin-top: 3rem;
+    font-family: 'Abril Fatface';
+    font-size: 40px;
+    color: rgb(37, 54, 67);
+}
+
+.nav {
+
+    border: 2px solid #ffd71a;
+    padding-top: 10px;
+    width: 26rem;
+    padding-bottom: 7px;
+    border-radius: 5px;
+}
+
+.navdiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.alogin {
+    text-decoration: underline;
+    text-decoration: teal;
+    border-radius: 2px;
+    border-color: teal;
+    text-transform: uppercase;
+    font: bold;
+    font-size: 15px;
+    letter-spacing: 0.025em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-right: 2rem;
+    color: #ffffff;
+
+}
+
+.alista {
+    text-decoration: underline;
+    text-decoration: teal;
+    border-radius: 2px;
+    border-color: teal;
+    text-transform: uppercase;
+    font: bold;
+    font-size: 15px;
+    letter-spacing: 0.025em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-right: 2rem;
+    color: #ffffff;
+}
+
+.aalterar {
+    text-decoration: underline;
+    text-decoration: teal;
+    border-radius: 2px;
+    border-color: teal;
+    text-transform: uppercase;
+    font: bold;
+    font-size: 15px;
+    letter-spacing: 0.025em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-right: 2rem;
+    color: #ffffff;
+}
+
+.aregister {
+    text-decoration: underline;
+    text-decoration: teal;
+    border-radius: 2px;
+    border-color: teal;
+    text-transform: uppercase;
+    font: bold;
+    font-size: 15px;
+    letter-spacing: 0.025em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-right: 2rem;
+    color: #ffffff;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.divcard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 16px;
+}
+
+.plist {
+    color: #ffffff;
+}
+
+.suspense {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+}
+
+.card {
+    background-color: #515e69;
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(255, 255, 255, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 150px;
+    transition: all 0.3s ease-out;
+    border-left: 2px solid #ffd71a;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.card p {
+    color: #a3a5ae;
+    font-size: 16px;
+}
