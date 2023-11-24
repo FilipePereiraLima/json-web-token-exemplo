@@ -53,7 +53,7 @@
   })
 
   app.post('/logar', async function (req, res){
-    const usuariodobanco = await usuario.findOne({where: {usuario: req.body.usuario, senha: crypto.encrypt(req.body.senha)}})
+    const usuariodobanco = await usuario.findOne({where: {usuario: req.body.usuario, password: crypto.encrypt(req.body.senha)}})
     
     if (usuariodobanco) {
       const id = usuariodobanco.id;
@@ -62,10 +62,9 @@
         nome: usuariodobanco.usuario,
         token: token
       })
-      return res.redirect("/usuarios/listar")
-    }else{
-      res.status(500).json({mensagem:"Senha e/ou Usuário incorreto!"})
+      return res.json(usuariodobanco)
     }
+   // return res.status(500).json({message:'credenciais erradas'})
   })
     
 
@@ -110,7 +109,7 @@
 
   })
   
-  app.listen(3000, function() {
+  app.listen(4000, function() {
     console.log('App de Exemplo escutando na porta 3000!')
   });
 

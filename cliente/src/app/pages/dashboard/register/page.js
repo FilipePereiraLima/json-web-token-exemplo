@@ -51,9 +51,9 @@ return toast.error("Erro")
         <div className={styles.divform}>
           <h1 className={styles.h1registrar}>Registrar</h1>
           <form onSubmit={handlerChange}>
-            <input className={styles.iptnome} placeholder='Name' type="text" required onChange={(e) => {setUser({ ...user, name:e.target.value});}}> </input>
-            <input className={styles.iptemail} placeholder='E-mail' type="email" required onChange={(e) => {setUser({ ...user, email:e.target.value});}}></input>
-            <input className={styles.iptsenha} placeholder='Senha' type='password' required onChange={(e) => {setUser({ ...user, password:e.target.value});}}></input>
+          <input className={styles.iptnome} placeholder='Name' type="text" onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
+            <input className={styles.iptemail} placeholder='E-mail' type="email"  onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
+            <input className={styles.iptsenha} placeholder='Senha' type='password' onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
 
             <button className={styles.button}>Cadastrar</button>
             <ToastContainer />
