@@ -8,7 +8,7 @@ export default async function ListUsers({ users }) {
                 <div className={styles.card}>
 
                     <p key={index}>
-                        <span className={styles.plist}>{user.name}</span><br />
+                        <span className={styles.plist}>{user.usuario}</span><br />
                         <span className={styles.plist}>{user.email}</span>
                     </p>
                 </div>

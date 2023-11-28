@@ -17,7 +17,7 @@ const getUserAuthenticated = async (user) => {
 
 const getUsers = async () =>{
         try{
-            const responseOfApi = await fetch (url + "/users",{
+            const responseOfApi = await fetch (url + "/usuarios/listar",{
                 next:{revalidate:10}
             });
             const listUsers = responseOfApi.json();

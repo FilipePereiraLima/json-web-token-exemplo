@@ -8,8 +8,8 @@ import styles from '../page.module.css'
 
 export default function Login() {
   const [user, setUser] = useState({
-    nome: '',
-    password: '',
+    usuario: '',
+    senha: '',
   });
   const { push, refresh } = useRouter();
  
@@ -37,16 +37,16 @@ export default function Login() {
         <form onSubmit={handlerLogin}>
           <input
             placeholder='Nome'
-            name="nome"
+            name="usuario"
             type="text"
-            onChange={(e) => { setUser({ ...user, nome: e.target.value }) }}
+            onChange={(e) => { setUser({ ...user, usuario: e.target.value }) }}
             className={styles.iptemail}>
 
           </input>
           <input
             placeholder='Senha'
             type='password'
-            onChange={(e) => { setUser({ ...user, password: e.target.value }) }}
+            onChange={(e) => { setUser({ ...user, senha: e.target.value }) }}
             className={styles.iptsenha}>
 
           </input>
