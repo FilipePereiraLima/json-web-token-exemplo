@@ -4,24 +4,25 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../../../page.module.css';
 import React, {useState} from 'react';
 import {useRouter} from 'next/navigation';
+import { postUser } from "@/app/functions/handlerAcessAPI";
 
 export default function Register() {
 
   const [user, setUser] = useState({
-    name:'',
-    email: '',
-    password: '',
+    usuario:'',
+    senha: ''
   });
 
   const { push, refresh } = useRouter();
 
-  const handlerChange = async (e) => {
+  const handlerRegister = async (e) => {
     e.preventDefault();
     try{
       await postUser(user);
       return push("/pages/dashboard")
     }catch{
-return toast.error("Erro")
+return toast.error("Erro ao Cadastrar")
+refresh();
     }
     toast.success("Usuario Cadastrado!");
   }
@@ -50,10 +51,9 @@ return toast.error("Erro")
       <section className={styles.section}>
         <div className={styles.divform}>
           <h1 className={styles.h1registrar}>Registrar</h1>
-          <form onSubmit={handlerChange}>
-          <input className={styles.iptnome} placeholder='Name' type="text" onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
-            <input className={styles.iptemail} placeholder='E-mail' type="email"  onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
-            <input className={styles.iptsenha} placeholder='Senha' type='password' onChange={(e)=>{ setUser({...user, name: e.target.value})}}></input>
+          <form onSubmit={handlerRegister}>
+          <input className={styles.iptnome} placeholder='Name' type="text" onChange={(e)=>{ setUser({...user, usuario: e.target.value})}}></input>
+            <input className={styles.iptsenha} placeholder='Senha' type='senha' onChange={(e)=>{ setUser({...user, senha: e.target.value})}}></input>
 
             <button className={styles.button}>Cadastrar</button>
             <ToastContainer />

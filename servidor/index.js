@@ -83,8 +83,6 @@
   app.post('/usuarios/cadastrar', async function(req, res){
 
       if(req.body.senha == req.body.confisenha){
-        //aqui vai ir a criptografia da senha e mandar no banco de dados
-
         const encrypted_key = crypto.encrypt(req.body.senha);
 
         let usuariocrypto = req.body;
@@ -92,11 +90,6 @@
 
         await usuario.create(usuariocrypto);
         res.redirect('/usuarios/listar')
-
-        
-
-
-      
       }else{
       res.status(500).json({mensagem:"As senhas são diferentes"})
     }
@@ -111,23 +104,3 @@
   app.listen(4000, function() {
     console.log('App de Exemplo escutando na porta 4000!')
   });
-
-  /*if( req.body.usuario === ) {
-
-
-
-
-      const id = 1;
-      const token = jwt.sign({ id }, process.env.SECRET, {
-        expiresIn: 300
-      })
-
-      res.cookie('token', token, {httpOnly:true});
-      return res.json({
-        usuario: req.body.usuario,
-        token: token
-      })
-    }
-    res.status(500).json({mensagem:"login invalido"})
-
-  })*/
