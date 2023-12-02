@@ -57,7 +57,7 @@
     
     if (usuariodobanco) {
       const id = usuariodobanco.id;
-      const token = jwt.sign({id}, process.env.SECRET, {expiresIn:300});
+      const token = jwt.sign({id}, process.env.SECRET, {expiresIn:3800});
       return res.cookie("token", token, {httpOnly:true}).json({
         nome: usuariodobanco.usuario,
         token: token
@@ -82,7 +82,7 @@
 
   app.post('/usuarios/cadastrar', async function(req, res){
 
-      if(req.body.senha == req.body.confisenha){
+      if(req.body.senha){
         const encrypted_key = crypto.encrypt(req.body.senha);
 
         let usuariocrypto = req.body;
