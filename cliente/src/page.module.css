@@ -25,7 +25,7 @@
 
 .button {
     margin-top: 15px;
-    width: 25vw;
+    width: 16vw;
     height: 5vh;
     background-color: #ffd71a;
     border: none;
@@ -37,7 +37,7 @@
 }
 
 .iptemail {
-    width: 26vw;
+    width: 17vw;
     height: 5vh;
     margin-left: 2.5%;
     border: none;
@@ -46,7 +46,7 @@
 }
 
 .iptsenha {
-    width: 26vw;
+    width: 17vw;
     height: 5vh;
     margin-left: 2.5%;
     margin-top: 10px;
@@ -56,7 +56,7 @@
 }
 
 .iptnome {
-    width: 26vw;
+    width: 17vw;
     height: 5vh;
     margin-left: 2.5%;
     margin-top: 10px;
