@@ -19,9 +19,6 @@ export default async function Dashboard() {
                         <a className={styles.alista} href="/pages/dashboard">
                             Lista
                         </a>
-                        <a className={styles.aalterar} href="/pages/dashboard/alter">
-                            Alterar
-                        </a>
                         <a className={styles.aregister} href="/pages/dashboard/register">
                             Registrar
                         </a>
